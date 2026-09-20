@@ -21,7 +21,7 @@ def main():
         "192.168.1.16": "block",
         "192.168.1.19": "block",
     }
-#for loop running 12 times for network traffic simulation
+#for loop running 12 times for network traffic simulation.
     for _ in range(12):
             ip_address = generate_random_ip()
             action = check_firewall_rules(ip_address, firewall_rules)
