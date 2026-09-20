@@ -1,14 +1,17 @@
 import random
 
+#generates random ip addresses
 def generate_random_ip():
     return f"192.168.1.{random.randint(0, 20)}"
 
+#firewall rules
 def check_firewall_rules(ip, rules):
     for rule_ip, action in rules.items():
         if ip == rule_ip:
             return action
     return "allow"
 
+#main func
 def main():
     firewall_rules = {
         "192.168.1.1": "block",
