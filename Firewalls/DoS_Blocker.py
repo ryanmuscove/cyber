@@ -23,11 +23,12 @@ def packet_callback(packet):#recieves argument packet
             if packet_rate > THRESHOLD and ip not in blocked_ips: #ensuring multiple ip tables aren't created
                 print(f"Blocking IP : {ip}, packet rate: {packet_rate} ")
                 print(f"Would block {ip}")
-                blocked_ips.add(ip)
+                blocked_ips.add(ip) #keeping track of blocked ip addresses
+
         packet_count.clear()
         start_time[0] = current_time
 
-if __name__ == "__main__":
+if __name__ == "__main__": #main function
     #if os.geteuid() != 0:
       #  print("This script requires administrator privilages.")
     #sys.ext()
