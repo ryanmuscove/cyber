@@ -17,9 +17,23 @@ def packet_callback(packet):
 
     if time_interval >= 1:
         for ip, count in packet_count.items():
-            packet_rate = count / interval_time
+            packet_rate = count / time_interval
 
             if packet_rate > THRESHOLD and ip not in blocked_ips:
                 print(f"Blocking IP : {ip}, packet rate: {packet_rate} ")
-                os.system(f"iptables -A INPUT -s {ip} -j DROP")
+                print(f"Would block {ip}")
                 blocked_ips.add(ip)
+        packet_count.clear()
+        start_time[0] = current_time
+
+if __name__ == "__main__":
+    #if os.geteuid() != 0:
+      #  print("This script requires administrator privilages.")
+    #sys.ext()
+
+    packet_count = defaultdict(int)
+    start_time = [time.time()]
+    blocked_ips = set()
+
+    print("Monitoring network traffic...")
+    sniff(filter="ip", prn=packet_callback)
