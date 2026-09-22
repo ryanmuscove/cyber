@@ -18,9 +18,9 @@ def packet_callback(packet):#recieves argument packet
 
     if time_interval >= 1:  #evaultes if a DoS attack is happening at a frequency of once every second. 
         for ip, count in packet_count.items(): #if interval is = or larger than 1, the loop executes
-            packet_rate = count / time_interval
+            packet_rate = count / time_interval #calcualte packet rate
 
-            if packet_rate > THRESHOLD and ip not in blocked_ips:
+            if packet_rate > THRESHOLD and ip not in blocked_ips: #ensuring multiple ip tables aren't created
                 print(f"Blocking IP : {ip}, packet rate: {packet_rate} ")
                 print(f"Would block {ip}")
                 blocked_ips.add(ip)
