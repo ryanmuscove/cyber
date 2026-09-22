@@ -1,18 +1,19 @@
-#required modules 
+#required modules & libraries 
 import os
 import sys
 import time 
 from collections import defaultdict
-from scapy.all import sniff, IP
+from scapy.all import sniff, IP #helps analyze netwokr packets
 
-#limit of compariong traffic
+#limit of comparing traffic
 THRESHOLD = 40
 print(f"THRESHOLD: {THRESHOLD}")
 
-def packet_callback(packet):
+
+def packet_callback(packet):#recieves argument packet 
     src_ip = packet[IP].src
     packet_count[src_ip] += 1
-    current_time = time.time()
+    current_time = time.time() #records time
     time_interval = current_time - start_time[0]
 
     if time_interval >= 1:
