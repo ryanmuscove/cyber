@@ -33,7 +33,7 @@ if __name__ == "__main__": #main function
       #  print("This script requires administrator privilages.")
     #sys.ext()
 
-    packet_count = defaultdict(int)
+    packet_count = defaultdict(int) #default data strucutre to assign default value
     start_time = [time.time()]
     blocked_ips = set()
 
