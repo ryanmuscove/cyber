@@ -4,4 +4,4 @@ import time
 from collections import defaultdict
 from scapy.all import sniff, IP, TCP
 THRESHOLD = 40
-print(f"THRESHOLD:{THRESHOLD}")
+print(f"THRESHOLD: {THRESHOLD}")
